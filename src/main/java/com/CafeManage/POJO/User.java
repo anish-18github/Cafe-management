@@ -8,6 +8,8 @@ import org.hibernate.annotations.DynamicUpdate;
 import java.io.Serial;
 import java.io.Serializable;
 
+@NamedQuery(name = "User.findByEmailId", query = "select u from User u where u.email=:email")
+
 @Data
 @Entity
 @DynamicUpdate
@@ -15,7 +17,8 @@ import java.io.Serializable;
 @Table(name = "user")
 public class User implements Serializable {
 
-//    @Serial
+
+    @Serial
     private static final long serialVersionUID = 1L;
 
     @Id
