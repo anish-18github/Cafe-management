@@ -29,7 +29,7 @@ public class UserServiceImpl implements UserService {
 
 		try {
 			if (validateSignUpMap(requestMap)) {
-				User user = UserDao.findByEmailId(requestMap.get("email"));
+				User user = userDao.findByEmailId(requestMap.get("email"));
 				if (Objects.isNull(user)) {
 					userDao.save(getUserFromMap(requestMap));
 					return CafeUtils.getResponseEntity("Successfully Registered", HttpStatus.OK);
